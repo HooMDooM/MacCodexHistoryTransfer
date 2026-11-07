@@ -1,0 +1,30 @@
+name: Build and test
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  macos:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python tests
+        run: python3 -m unittest -v test_transfer test_pairing
+      - name: Discovery validation
+        run: |
+          swiftc Discovery.swift Localization.swift Tests/DiscoveryTests.swift -o "$RUNNER_TEMP/discovery-tests"
+          "$RUNNER_TEMP/discovery-tests"
+      - name: Build universal app
+        run: python3 build.py
+      - name: Verify signature and architectures
+        run: |
+          codesign --verify --deep --strict 'dist/Mac Codex History Transfer.app'
+          lipo 'dist/Mac Codex History Transfer.app/Contents/MacOS/MacCodexHistoryTransfer' -verify_arch arm64 x86_64
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Mac-Codex-History-Transfer
+          path: dist/Mac-Codex-History-Transfer-*.zip
+          if-no-files-found: error
