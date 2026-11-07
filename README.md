@@ -3,12 +3,12 @@
   <h1>Mac Codex History Transfer</h1>
   <p>Take your local Codex conversations from one Mac to another.</p>
   <p>
-    <a href="https://github.com/HooMDooM/mac-codex-history-transfer/actions/workflows/ci.yml"><img src="https://github.com/HooMDooM/mac-codex-history-transfer/actions/workflows/ci.yml/badge.svg" alt="Build and test"></a>
+    <a href="https://github.com/HooMDooM/MacCodexHistoryTransfer/actions/workflows/ci.yml"><img src="https://github.com/HooMDooM/MacCodexHistoryTransfer/actions/workflows/ci.yml/badge.svg" alt="Build and test"></a>
     <img src="https://img.shields.io/badge/macOS-13%2B-111827?logo=apple&logoColor=white" alt="macOS 13 or later">
     <img src="https://img.shields.io/badge/Apple%20silicon%20%2B%20Intel-universal-7565EF" alt="Universal binary">
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49B89A" alt="MIT license"></a>
   </p>
-  <p><a href="https://github.com/HooMDooM/mac-codex-history-transfer/releases/latest"><strong>Download for macOS</strong></a> · <a href="#getting-started">Getting started</a> · <a href="#build-from-source">Build from source</a></p>
+  <p><a href="https://github.com/HooMDooM/MacCodexHistoryTransfer/releases/latest"><strong>Download for macOS</strong></a> · <a href="#getting-started">Getting started</a> · <a href="#build-from-source">Build from source</a></p>
 </div>
 
 A small native macOS app for moving local Codex history between your own computers. Find your other Mac, connect once, choose a direction and transfer. Afterward, the receiving Mac can use its local copy independently.
@@ -37,7 +37,7 @@ This is an independent community project, not affiliated with or endorsed by Ope
 
 ## Getting started
 
-1. Download the ZIP from [Releases](https://github.com/HooMDooM/mac-codex-history-transfer/releases/latest), extract it and open the app on both Macs.
+1. Download the ZIP from [Releases](https://github.com/HooMDooM/MacCodexHistoryTransfer/releases/latest), extract it and open the app on both Macs.
 2. Keep both computers awake on the same local network and allow **Local Network** access when macOS asks.
 3. Enable **Remote Login** in **System Settings → General → Sharing** for your user account on the Mac you are connecting to. The app can open these settings.
 4. Click **Find Mac**, select your other computer and click **Connect**.
@@ -106,8 +106,8 @@ Operation data is stored under `~/Library/Application Support/Codex Transfer/ope
 ## Build from source
 
 ```sh
-git clone https://github.com/HooMDooM/mac-codex-history-transfer.git
-cd mac-codex-history-transfer
+git clone https://github.com/HooMDooM/MacCodexHistoryTransfer.git
+cd MacCodexHistoryTransfer
 python3 build.py
 ```
 
