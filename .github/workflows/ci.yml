@@ -22,7 +22,7 @@ jobs:
       - name: Verify signature and architectures
         run: |
           codesign --verify --deep --strict 'dist/Mac Codex History Transfer.app'
-          lipo 'dist/Mac Codex History Transfer.app/Contents/MacOS/MacCodexHistoryTransfer' -verify_arch arm64 x86_64
+          python3 -c "import subprocess; assert set(subprocess.check_output(['/usr/bin/lipo', '-archs', 'dist/Mac Codex History Transfer.app/Contents/MacOS/MacCodexHistoryTransfer']).decode().split()) == {'arm64', 'x86_64'}"
       - uses: actions/upload-artifact@v4
         with:
           name: Mac-Codex-History-Transfer
